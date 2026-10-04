@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1220">
+  <title>MailFlow — Email Campaign Manager</title>
+  <link rel="icon" href="/assets/favicon-32x32.png" type="image/png">
+  <style>
+    :root{--bg:#07111f;--panel:#0e1a2b;--panel2:#111f33;--border:#20324b;--text:#edf5ff;--muted:#8fa4bd;--accent:#42d3a5;--accent2:#2fb88d;--danger:#ff6b7a;--warning:#f5c76a;--shadow:0 18px 55px rgba(0,0,0,.28)}
+    *{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at 10% 0%,#132742 0,#07111f 42%,#050b14 100%);color:var(--text)}
+    button,input,textarea,select{font:inherit}button{cursor:pointer}.app{min-height:100vh;display:grid;grid-template-columns:240px 1fr}.sidebar{padding:24px 16px;border-right:1px solid var(--border);background:rgba(6,14,25,.82);backdrop-filter:blur(16px);position:sticky;top:0;height:100vh}.brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:20px;padding:8px 10px 28px}.brand-mark{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),#2c7fff);box-shadow:0 8px 22px rgba(66,211,165,.2)}.nav{display:grid;gap:7px}.nav button{border:1px solid transparent;background:transparent;color:var(--muted);text-align:left;padding:12px;border-radius:10px}.nav button.active,.nav button:hover{background:var(--panel2);color:var(--text);border-color:var(--border)}.sidebar-note{position:absolute;left:16px;right:16px;bottom:20px;color:var(--muted);font-size:12px;line-height:1.5}.main{padding:28px;min-width:0}.topbar{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:22px}.eyebrow{color:var(--accent);font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.topbar h1{margin:4px 0 0;font-size:28px}.status{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:13px}.dot{width:9px;height:9px;border-radius:50%;background:var(--danger)}.dot.ok{background:var(--accent);box-shadow:0 0 0 4px rgba(66,211,165,.1)}.grid{display:grid;grid-template-columns:minmax(420px,1fr) minmax(360px,.82fr);gap:18px}.card{background:linear-gradient(180deg,rgba(17,31,51,.95),rgba(11,23,39,.95));border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);padding:18px}.card-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}.card h2{font-size:16px;margin:0}.muted{color:var(--muted)}.fields{display:grid;gap:12px}.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}label{display:grid;gap:7px;color:#b8c7d8;font-size:12px;font-weight:700}input,textarea,select{width:100%;border:1px solid var(--border);background:#091525;color:var(--text);border-radius:10px;padding:11px 12px;outline:none}input:focus,textarea:focus,select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(66,211,165,.09)}textarea{min-height:270px;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;line-height:1.55}.toolbar{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}.btn{border:1px solid var(--border);background:#132239;color:var(--text);padding:10px 13px;border-radius:10px;font-weight:750}.btn:hover{transform:translateY(-1px);border-color:#38516e}.btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#04130f;border:0}.btn.danger{background:rgba(255,107,122,.1);border-color:rgba(255,107,122,.25);color:#ff9aa5}.file{display:none}.preview-frame{width:100%;height:400px;border:1px solid var(--border);border-radius:12px;background:white}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:18px}.stat{padding:13px;border:1px solid var(--border);border-radius:12px;background:rgba(8,19,33,.7)}.stat strong{display:block;font-size:20px;margin-top:5px}.stat span{font-size:11px;color:var(--muted)}.progress{height:8px;background:#07111e;border-radius:99px;overflow:hidden;margin:12px 0}.bar{height:100%;width:0;background:linear-gradient(90deg,var(--accent),#2c7fff);transition:width .25s}.campaign-list{display:grid;gap:10px;max-height:360px;overflow:auto}.campaign{padding:12px;border:1px solid var(--border);border-radius:11px;background:#0a1626}.campaign-top{display:flex;justify-content:space-between;gap:12px}.badge{font-size:10px;padding:4px 7px;border-radius:99px;background:#15243a;color:#a9bad0;text-transform:uppercase;font-weight:800}.badge.completed{color:var(--accent)}.badge.failed,.badge.stopped{color:var(--danger)}.empty{color:var(--muted);font-size:13px;padding:20px 0;text-align:center}.toast{position:fixed;right:22px;bottom:22px;max-width:380px;background:#14253b;border:1px solid var(--border);padding:12px 15px;border-radius:11px;box-shadow:var(--shadow);opacity:0;transform:translateY(10px);pointer-events:none;transition:.2s;z-index:50}.toast.show{opacity:1;transform:none}.modal{position:fixed;inset:0;background:rgba(0,0,0,.65);display:none;align-items:center;justify-content:center;padding:18px;z-index:40}.modal.open{display:flex}.modal-box{width:520px;max-width:100%;background:#0e1a2b;border:1px solid var(--border);border-radius:16px;padding:20px}.modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:15px}@media(max-width:1000px){.app{grid-template-columns:1fr}.sidebar{position:static;height:auto;border-right:0;border-bottom:1px solid var(--border);padding:12px}.brand{padding:4px 8px 12px}.nav{display:flex;overflow:auto}.nav button{white-space:nowrap}.sidebar-note{display:none}.main{padding:16px}.grid{grid-template-columns:1fr}}@media(max-width:620px){.row,.stats{grid-template-columns:1fr}.topbar{align-items:flex-start;flex-direction:column}}
+  </style>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-mark">✉</div> MailFlow</div>
+    <nav class="nav">
+      <button class="active">Dashboard</button>
+      <button onclick="scrollToId('campaignCard')">Campaigns</button>
+      <button onclick="document.getElementById('csvInput').click()">Contacts</button>
+      <button onclick="document.getElementById('htmlInput').focus()">Templates</button>
+      <button onclick="openSmtp()">SMTP Settings</button>
+    </nav>
+    <div class="sidebar-note">Session-only SMTP credentials.<br>Never stored in logs or the database.</div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div><div class="eyebrow">Email Campaign Manager</div><h1>Dashboard</h1></div>
+      <div class="status"><span id="healthDot" class="dot"></span><span id="healthText">Checking API…</span></div>
+    </header>
+
+    <section class="grid">
+      <div class="card">
+        <div class="card-head"><h2>Create campaign</h2><button class="btn" onclick="openSmtp()">⚙ SMTP</button></div>
+        <form id="campaignForm">
+          <div class="fields">
+            <div class="row">
+              <label>Subject <input name="subject" placeholder="Hello {{ name }}" required></label>
+              <label>Sender name <input name="senderName" placeholder="MailFlow Team" required></label>
+            </div>
+            <label>HTML email template <textarea id="htmlInput" name="htmlContent" placeholder="<h1>Hello {{ name }}</h1>\n<p>Welcome to our newsletter.</p>" required></textarea></label>
+            <div class="row">
+              <label>Send interval (seconds)<input name="interval" type="number" min="0" max="60" step="0.1" value="1"></label>
+              <label>Recipients CSV<input id="csvInput" name="csvFile" type="file" class="file" accept=".csv" required><button type="button" class="btn" onclick="document.getElementById('csvInput').click()" id="fileButton">Choose CSV</button></label>
+            </div>
+          </div>
+          <div class="toolbar"><button type="button" class="btn" id="previewCsv">Preview CSV</button><button type="button" class="btn" id="testPreview">Refresh email preview</button><button type="submit" class="btn primary">Start Campaign →</button></div>
+        </form>
+        <div class="stats"><div class="stat"><span>Recipients</span><strong id="statTotal">0</strong></div><div class="stat"><span>Sent</span><strong id="statSent">0</strong></div><div class="stat"><span>Failed</span><strong id="statFailed">0</strong></div><div class="stat"><span>Progress</span><strong id="statProgress">0%</strong></div></div>
+        <div class="progress"><div class="bar" id="progressBar"></div></div>
+        <div class="toolbar"><button class="btn danger" id="stopBtn" disabled>Stop campaign</button></div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h2>Email preview</h2><span class="muted">Jinja variables supported</span></div>
+        <iframe id="previewFrame" class="preview-frame" sandbox="allow-same-origin"></iframe>
+        <div class="card-head" style="margin-top:18px"><h2>CSV preview</h2><span id="csvSummary" class="muted">No file selected</span></div>
+        <div id="csvTable" class="empty">Upload a CSV with an <b>Email</b> column.</div>
+      </div>
+    </section>
+
+    <section class="card" id="campaignCard" style="margin-top:18px">
+      <div class="card-head"><h2>Recent campaigns</h2><button class="btn" onclick="loadCampaigns()">Refresh</button></div>
+      <div id="campaignList" class="campaign-list"><div class="empty">No campaigns yet.</div></div>
+    </section>
+  </main>
+</div>
+
+<div class="modal" id="smtpModal"><div class="modal-box">
+  <div class="card-head"><h2>SMTP settings</h2><button class="btn" onclick="closeSmtp()">×</button></div>
+  <form id="smtpForm" class="fields">
+    <div class="row"><label>SMTP host<input id="smtpHost" required placeholder="smtp.gmail.com"></label><label>Port<input id="smtpPort" type="number" required value="587"></label></div>
+    <div class="row"><label>Username<input id="smtpUser" required placeholder="you@example.com"></label><label>Password<input id="smtpPass" type="password" required></label></div>
+    <label>Security<select id="smtpSecurity"><option value="tls">STARTTLS</option><option value="ssl">SSL/TLS</option><option value="none">None</option></select></label>
+    <div class="modal-actions"><button type="button" class="btn" onclick="closeSmtp()">Cancel</button><button type="button" class="btn" onclick="testSmtp()">Test connection</button><button type="submit" class="btn primary">Save SMTP</button></div>
+  </form>
+</div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+const $=s=>document.querySelector(s); let activeCampaign=null; let pollTimer=null;
+function toast(msg){const el=$('#toast');el.textContent=msg;el.classList.add('show');clearTimeout(window.__toast);window.__toast=setTimeout(()=>el.classList.remove('show'),3200)}
+function scrollToId(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth'})}
+function openSmtp(){ $('#smtpModal').classList.add('open'); loadSmtpStatus(); } function closeSmtp(){ $('#smtpModal').classList.remove('open') }
+async function api(url,opts={}){const r=await fetch(url,opts);const data=await r.json().catch(()=>({detail:'Unexpected server response'}));if(!r.ok)throw new Error(data.detail||'Request failed');return data}
+async function health(){try{await api('/api/health');$('#healthDot').classList.add('ok');$('#healthText').textContent='API online'}catch(e){$('#healthText').textContent='API offline'}}
+async function loadSmtpStatus(){try{const d=await api('/api/smtp/status');if(d.configured){$('#smtpHost').value=d.host;$('#smtpPort').value=d.port;$('#smtpUser').value=d.username;$('#smtpSecurity').value=d.security}}catch(e){}}
+$('#smtpForm').addEventListener('submit',async e=>{e.preventDefault();const fd=new FormData();fd.append('smtpHost',$('#smtpHost').value);fd.append('smtpPort',$('#smtpPort').value);fd.append('smtpUser',$('#smtpUser').value);fd.append('smtpPass',$('#smtpPass').value);fd.append('smtpSecurity',$('#smtpSecurity').value);try{const d=await api('/api/smtp/configure',{method:'POST',body:fd});toast(d.message);closeSmtp()}catch(e){toast(e.message)}})
+async function testSmtp(){try{const d=await api('/api/smtp/test',{method:'POST'});toast(d.message)}catch(e){toast(e.message)}}
+$('#csvInput').addEventListener('change',e=>{$('#fileButton').textContent=e.target.files[0]?.name||'Choose CSV'; if(e.target.files[0]) previewCsv()})
+async function previewCsv(){const file=$('#csvInput').files[0];if(!file){toast('Choose a CSV first');return}const fd=new FormData();fd.append('csvFile',file);try{const d=await api('/api/csv/preview',{method:'POST',body:fd});$('#csvSummary').textContent=`${d.total} valid · ${d.invalid} invalid · ${d.duplicates} duplicates`;if(!d.preview.length){$('#csvTable').innerHTML='<div class="empty">No valid recipients.</div>';return}const cols=d.columns;let html='<div style="overflow:auto"><table style="width:100%;border-collapse:collapse;font-size:12px"><thead><tr>'+cols.map(c=>`<th style="padding:8px;text-align:left;border-bottom:1px solid var(--border);color:var(--muted)">${escapeHtml(c)}</th>`).join('')+'</tr></thead><tbody>'+d.preview.map(r=>'<tr>'+cols.map(c=>`<td style="padding:8px;border-bottom:1px solid var(--border)">${escapeHtml(r[c]||'')}</td>`).join('')+'</tr>').join('')+'</tbody></table></div>';$('#csvTable').innerHTML=html}catch(e){toast(e.message)}}
+$('#previewCsv').onclick=previewCsv;
+function escapeHtml(s){return String(s).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
+function refreshPreview(){let html=$('#htmlInput').value;html=html.replace(/{{\s*([\w]+)\s*}}/g,(_,k)=>`<span style="background:#eef7f4;color:#16785c;padding:2px 5px;border-radius:4px">{{ ${k} }}</span>`);$('#previewFrame').srcdoc=html||'<p style="font-family:Arial;padding:20px">Start writing your email…</p>'}
+$('#htmlInput').addEventListener('input',refreshPreview);$('#testPreview').onclick=refreshPreview;
+$('#campaignForm').addEventListener('submit',async e=>{e.preventDefault();const file=$('#csvInput').files[0];if(!file){toast('Choose a CSV first');return}try{const d=await api('/api/campaigns',{method:'POST',body:new FormData(e.target)});activeCampaign=d.campaign.id;$('#stopBtn').disabled=false;toast('Campaign queued successfully');pollCampaign()}catch(err){toast(err.message)}})
+async function pollCampaign(){clearTimeout(pollTimer);if(!activeCampaign)return;try{const d=await api('/api/campaigns/'+activeCampaign);const pct=d.total?Math.round(d.processed/d.total*100):0;$('#statTotal').textContent=d.total;$('#statSent').textContent=d.sent;$('#statFailed').textContent=d.failed;$('#statProgress').textContent=pct+'%';$('#progressBar').style.width=pct+'%';$('#stopBtn').disabled=!['queued','sending'].includes(d.status);if(['completed','failed','stopped'].includes(d.status)){toast(`Campaign ${d.status}. Sent ${d.sent}, failed ${d.failed}.`);loadCampaigns();activeCampaign=null;return}}catch(e){}pollTimer=setTimeout(pollCampaign,900)}
+$('#stopBtn').onclick=async()=>{if(!activeCampaign)return;try{await api('/api/campaigns/'+activeCampaign+'/stop',{method:'POST'});toast('Stop requested')}catch(e){toast(e.message)}}
+async function loadCampaigns(){try{const d=await api('/api/campaigns');const list=$('#campaignList');if(!d.campaigns.length){list.innerHTML='<div class="empty">No campaigns yet.</div>';return}list.innerHTML=d.campaigns.map(c=>`<div class="campaign"><div class="campaign-top"><strong>${escapeHtml(c.subject)}</strong><span class="badge ${c.status}">${c.status}</span></div><div class="muted" style="font-size:11px;margin-top:7px">${c.processed}/${c.total} processed · ${c.sent} sent · ${c.failed} failed · ${new Date(c.created_at).toLocaleString()}</div></div>`).join('')}catch(e){}}
+refreshPreview();health();loadCampaigns();
+</script>
+</body>
+</html>
